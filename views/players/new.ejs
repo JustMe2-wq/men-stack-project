@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create game</title>
+</head>
+
+<body>
+    <a href="/">Home</a>
+    <h1>Create a new Player!</h1>
+    <form action="/players" method="POST">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <br>
+        <br>
+        <div>
+            <label for="position">Position:</label>
+            <input type="text" name="position" id="position">
+        </div>
+        <br>
+        <br>
+        <div>
+            <label for="height">Height:</label>
+            <input type="text" name="height" id="height">
+        </div>
+        <br>
+        <br>
+        <div>
+            <label for="weight">Weight:</label>
+            <input type="text" name="weight" id="weight">
+        </div>
+        <br>
+        <br>
+        <div>
+            <label for="number">Number:</label>
+            <input type="text" name="number" id="number">
+        </div>
+        <br>
+        <br>
+        <div>
+            <label for="team">Team:</label>
+            <select name="team" id="team">
+                <% allTeams.forEach(team => { %>
+                <option value="<%= team._id %>"><%= team.name %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div>
+            <label for="isListedHealthy">Is Listed Healthy:</label>
+            <input type="checkbox" name="isListedHealthy" id="isListedHealthy">
+        </div>
+        <br>
+        <br>
+        <button type="submit">Create Player</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Team</title>
+</head>
+
+<body>
+    <a href="/">Home</a>
+    <h1>Edit team</h1>
+    <form action="/teams/<%= foundTeam._id%>?_method=PUT" method="POST">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" value="<%= foundTeam.name %>">
+        </div>
+        <br>
+        <br>
+        <div>
+            <label for="city">City:</label>
+            <input type="text" name="city" id="city" value="<%= foundTeam.city %>">
+        </div>
+        <br>
+        <br>
+        <div>
+            <label for="mascot">Mascot:</label>
+            <input type="text" name="mascot" id="mascot" value="<%= foundTeam.mascot %>">
+        </div>
+        <br>
+        <br>
+        <div>
+            <label for="color">Color:</label>
+            <input type="text" name="color" id="color" value="<%= foundTeam.color %>">
+        </div>
+        <br>
+        <br>
+        <div>
+            <label for="yearFounded">Year Founded:</label>
+            <input type="number" name="yearFounded" id="yearFounded" value="<%= foundTeam.yearFounded %>">
+        </div>
+        <br>
+        <br>
+        <div>
+            <label for="seasonIsReady">Ready for The Season?</label>
+            <input type="checkbox" name="seasonIsReady" id="seasonIsReady" <% if(foundTeam.seasonIsReady) { %> checked <% } %>>
+        </div>
+        <br>
+        <br>
+
+        <button type="submit">Update Team</button>
+    </form>
+    <br>
+    <br>
+    <a href="/teams/<%= foundTeam._id %>">Back to <%= foundTeam.name %></a>
+    <br>
+    <br>
+    <a href="/teams">Back to Team Index</a>
+</body>
+
+</html>

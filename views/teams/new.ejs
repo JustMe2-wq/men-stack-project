@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Team</title>
+</head>
+
+<body>
+    <a href="/">Home</a>
+    <h1>Create a new Team!</h1>
+    <a href="/teams">Go to Team Index</a>
+    <br>
+    <br>
+    <form action="/teams" method="POST">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <br>
+        <br>
+        <div>
+            <label for="city">City:</label>
+            <input type="text" name="city" id="city">
+        </div>
+        <br>
+        <br>
+        <div>
+            <label for="mascot">Mascot:</label>
+            <input type="text" name="mascot" id="mascot">
+        </div>
+        <br>
+        <br>
+        <div>
+            <label for="color">Color:</label>
+            <input type="text" name="color" id="color">
+        </div>
+        <br>
+        <br>
+        <div>
+            <label for="yearFounded">Year Founded:</label>
+            <input type="number" name="yearFounded" id="yearFounded">
+        </div>
+        <br>
+        <br>
+        <div>
+            <label for="seasonIsReady">Ready for The Season?</label>
+            <input type="checkbox" name="seasonIsReady" id="seasonIsReady">
+        </div>
+        <br>
+        <br>
+        <button type="submit">Create Team</button>
+    </form>
+</body>
+
+</html>
