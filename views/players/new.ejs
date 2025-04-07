@@ -8,50 +8,45 @@
 </head>
 
 <body>
-    <a href="/">Home</a>
+    <%- include('../nav/_nav.ejs') %>
     <h1>Create a new Player!</h1>
-    <form action="/players" method="POST">
+    <form action="/users/<%= user._id %>/players" method="POST">
         <div>
-            <label for="name">Name:</label>
-            <input type="text" name="name" id="name">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required>
         </div>
         <br>
         <br>
         <div>
-            <label for="position">Position:</label>
-            <input type="text" name="position" id="position">
+        <label for="position">Position:</label>
+        <input type="text" name="position" id="position" required>
         </div>
         <br>
         <br>
         <div>
-            <label for="height">Height:</label>
-            <input type="text" name="height" id="height">
+        <label for="number">Number:</label>
+        <input type="number" name="number" id="number" required>
         </div>
         <br>
         <br>
         <div>
-            <label for="weight">Weight:</label>
-            <input type="text" name="weight" id="weight">
+        <label for="height">Height:</label>
+        <input type="text" name="height" id="height" required>
         </div>
         <br>
         <br>
         <div>
-            <label for="number">Number:</label>
-            <input type="text" name="number" id="number">
+        <label for="weight">Weight:</label>
+        <input type="text" name="weight" id="weight" required>
         </div>
         <br>
         <br>
         <div>
-            <label for="team">Team:</label>
-            <select name="team" id="team">
-                <% allTeams.forEach(team => { %>
-                <option value="<%= team._id %>"><%= team.name %></option>
-                <% }) %>
+        <label for="status">Status:</label>
+            <select name="status" id="status">
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
             </select>
-        </div>
-        <div>
-            <label for="isListedHealthy">Is Listed Healthy:</label>
-            <input type="checkbox" name="isListedHealthy" id="isListedHealthy">
         </div>
         <br>
         <br>

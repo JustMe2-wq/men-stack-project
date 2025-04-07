@@ -8,36 +8,24 @@
 </head>
 
 <body>
-    <a href="/">Home</a>
-    <h1><%= foundTeam.name %></h1>
-    <h3>City: <%= foundTeam.city %></h3>
-    <h3>Mascot: <%= foundTeam.mascot %></h3>
-    <h3>Color: <%= foundTeam.color %></h3>
-    <h3>Year Founded: <%= foundTeam.yearFounded %></h3>
-    <h3>Ready for the Season: <%= foundTeam.seasonIsReady ? 'Yes' : 'No' %></h4>
-    <br>
-    <br>
-    <h2>Players on this Team:</h2>
-    <ul>
-        <% foundTeam.players.forEach(player => { %>
-            <li><a href="/players/<%= player._id %>"><%= player.name %></a></li>
-        <% }) %>
-    </ul>
-    <a href="/teams/<%= foundTeam._id %>/edit">Edit Team</a>
-    <br>
-    <br>
-    <form action="/teams/<%= foundTeam._id %>?_method=DELETE" method="POST">
+    <%- include('../nav/_nav.ejs') %>
+    <h1><%= team.name %></h1>
+    <h3>City: <%= team.city %></h3>
+    <h3>Mascot: <%= team.mascot %></h3>
+    <h3>Color: <%= team.color %></h3>
+    <h3>Year Founded: <%= team.yearFounded %></h3>
+    <h3>Status: <%= team.status %></h3>
+    <form action="/users/<%= user._id %>/teams/<%= team._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete Team</button>
     </form>
-    <br>
-    <br>
-    <a href="/players/new">Add a new Player</a>
-    <br>
-    <br>
-    <a href="/players">View all Players</a>
-    <br>
-    <br>
-    <a href="/teams">Back to Team Index</a>
+    <form action="/users/<%= user._id %>/teams/<%= team._id %>/edit" method="GET">
+        <button type="submit">Edit Team</button>
+    </form>
+    <h2>Players</h2>
+    <form action="/users/<%= user._id %>/players/new" method="GET">
+        <button type="submit">Add New Player</button>
+    </form>
+</body>
 </body>
 
 </html>

@@ -8,27 +8,24 @@
 </head>
 
 <body>
-    <a href="/">Home</a>
+    <%- include('../nav/_nav.ejs') %>
     <h1>Player Details</h1>
     <h2><%= player.name %></h2>
-    <p>Team: <%= player.team.name %></p>
     <p>Position: <%= player.position %></p>
     <p>Height: <%= player.height %></p>
     <p>Weight: <%= player.weight %></p>
     <p>Number: <%= player.number %></p>
-    <p>Is Listed Healthy: <%= player.isListedHealthy ? 'Yes' : 'No' %></p>
+    <p>Status: <%= player.status %></p>
     <br>
-    <a href="/players/<%= player._id %>/edit">Edit Player</a>
     <br>
-    <form action="/players/<%= player._id %>?_method=DELETE" method="POST">
+    <form action="/users/<%= user._id %>/players/<%= player._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete Player</button>
     </form>
+    <form action="/users/<%= user._id %>/players/<%= player._id %>/edit" method="GET">
+        <button type="submit">Edit Player</button>
+    </form>
     <br>
-    <a href="/players/new">Add a new Player</a>
     <br>
-    <a href="/players">View all Players</a>
-    <br>
-    <a href="/teams">View all Teams</a>
 </body>
 
 </html>

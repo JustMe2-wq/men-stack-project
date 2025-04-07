@@ -8,54 +8,52 @@
 </head>
 
 <body>
-    <a href="/">Home</a>
+    <%- include('../nav/_nav.ejs') %>
     <h1>Edit team</h1>
-    <form action="/teams/<%= foundTeam._id%>?_method=PUT" method="POST">
+    <form action="/users/<%= user._id %>/teams/<%= team._id %>?_method=PUT" method="POST">
+    </form>
+    <form action="/users/<%= user._id %>/teams" method="POST">
         <div>
             <label for="name">Name:</label>
-            <input type="text" name="name" id="name" value="<%= foundTeam.name %>">
+            <input type="text" name="name" id="name" value="<%= team.name %>">
         </div>
         <br>
         <br>
         <div>
             <label for="city">City:</label>
-            <input type="text" name="city" id="city" value="<%= foundTeam.city %>">
+            <input type="text" name="city" id="city" value="<%= team.city %>">
         </div>
         <br>
         <br>
         <div>
             <label for="mascot">Mascot:</label>
-            <input type="text" name="mascot" id="mascot" value="<%= foundTeam.mascot %>">
+            <input type="text" name="mascot" id="mascot" value="<%= team.mascot %>">
         </div>
         <br>
         <br>
         <div>
             <label for="color">Color:</label>
-            <input type="text" name="color" id="color" value="<%= foundTeam.color %>">
+            <input type="text" name="color" id="color" value="<%= team.color %>">
         </div>
         <br>
         <br>
         <div>
             <label for="yearFounded">Year Founded:</label>
-            <input type="number" name="yearFounded" id="yearFounded" value="<%= foundTeam.yearFounded %>">
+            <input type="number" name="yearFounded" id="yearFounded" value="<%= team.yearFounded %>">
         </div>
         <br>
         <br>
         <div>
-            <label for="seasonIsReady">Ready for The Season?</label>
-            <input type="checkbox" name="seasonIsReady" id="seasonIsReady" <% if(foundTeam.seasonIsReady) { %> checked <% } %>>
+            <label for="status">Status:</label>
+            <select name="status" id="status">
+                <option value="active" <% if(team.status === 'active') { %> selected <% } %>>Active</option>
+                <option value="inactive" <% if(team.status === 'inactive') { %> selected <% } %>>Inactive</option>
+            </select>
         </div>
         <br>
         <br>
-
         <button type="submit">Update Team</button>
     </form>
-    <br>
-    <br>
-    <a href="/teams/<%= foundTeam._id %>">Back to <%= foundTeam.name %></a>
-    <br>
-    <br>
-    <a href="/teams">Back to Team Index</a>
 </body>
 
 </html>

@@ -8,12 +8,11 @@
 </head>
 
 <body>
-    <a href="/">Home</a>
+    <%- include('../nav/_nav.ejs') %>
     <h1>Create a new Team!</h1>
-    <a href="/teams">Go to Team Index</a>
     <br>
     <br>
-    <form action="/teams" method="POST">
+    <form action="/users/<%= user._id %>/teams" method="POST">
         <div>
             <label for="name">Name:</label>
             <input type="text" name="name" id="name">
@@ -45,8 +44,11 @@
         <br>
         <br>
         <div>
-            <label for="seasonIsReady">Ready for The Season?</label>
-            <input type="checkbox" name="seasonIsReady" id="seasonIsReady">
+            <label for="status">Status:</label>
+            <select name="status" id="status">
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+            </select>
         </div>
         <br>
         <br>

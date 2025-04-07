@@ -8,62 +8,40 @@
 </head>
 
 <body>
-    <a href="/">Home</a>
-    <div>
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" value="<%= foundPlayer.name %>">
-    </div>
-    <br>
-    <br>
-    <div>
-        <label for="position">Position:</label>
-        <input type="text" name="position" id="position" value="<%= foundPlayer.position %>">
-    </div>
-    <br>
-    <br>
-    <div>
-        <label for="height">Height:</label>
-        <input type="text" name="height" id="height" value="<%= foundPlayer.height %>">
-    </div>
-    <br>
-    <br>
-    <div>
-        <label for="weight">Weight:</label>
-        <input type="text" name="weight" id="weight" value="<%= foundPlayer.weight %>">
-    </div>
-    <br>
-    <br>
-    <div>
-        <label for="number">Number:</label>
-        <input type="text" name="number" id="number" value="<%= foundPlayer.number %>">
-    </div>
-    <br>
-    <br>
-    <div>
-        <label for="isListedHealthy">Is Listed Healthy:</label>
-        <input type="checkbox" name="isListedHealthy" id="isListedHealthy" <% if(foundPlayer.isListedHealthy) { %> checked <% } %>>
-    </div>
-    <br>
-    <br>
-    <div>
-        <label for="team">Team:</label>
-        <select name="team" id="team">
-            <% allTeams.forEach(team => { %>
-                <option value="<%= team._id %>" <% if (foundPlayer.team._id == team._id) { %> selected <% } %>><%= team.name %></option>
-            <% }) %>
-        </select>
-    </div>
-    <br>
-    <br>
-    <form action="/players/<%= foundPlayer._id %>?_method=PUT" method="POST">
-        <button type="submit">Update Player</button>
+    <%- include('../nav/_nav.ejs') %>
+        <h1>Edit Player</h1>
+    <form action="/users/<%= user._id %>/players/<%= player._id %>?_method=PUT" method="POST">
     </form>
-    <br>
-    <br>
-    <a href="/players/<%= foundPlayer._id %>">Back to <%= foundPlayer.name %></a>
-    <br>
-    <br>
-    <a href="/players">Back to Player Index</a>
+    <form action="/users/<%= user._id %>/players" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value="<%= player.name %>" required>
+        <br>
+        <br>
+        <label for="position">Position:</label>
+        <input type="text" name="position" id="position" value="<%= player.position %>" required>
+        <br>
+        <br>
+        <label for="number">Number:</label>
+        <input type="number" name="number" id="number" value="<%= player.number %>" required>
+        <br>
+        <br>
+        <label for="height">Height:</label>
+        <input type="text" name="height" id="height" value="<%= player.height %>" required>
+        <br>
+        <br>
+        <label for="weight">Weight:</label>
+        <input type="text" name="weight" id="weight" value="<%= player.weight %>" required>
+        <br>
+        <br>
+        <label for="status">Status:</label>
+        <select name="status" id="status" required>
+            <option value="active" <% if(player.status === 'active') { %> selected <% } %>>Active</option>
+            <option value="inactive" <% if(player.status === 'inactive') { %> selected <% } %>>Inactive</option>
+        </select>
+        <br>
+        <br>
+        <button type="submit">Update player</button>
+    </form>
 </body>
 
 </html>
