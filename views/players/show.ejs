@@ -4,28 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/show.css" />
+
     <title>Player Page</title>
 </head>
 
 <body>
     <%- include('../nav/_nav.ejs') %>
-    <h1>Player Details</h1>
-    <h2><%= player.name %></h2>
-    <p>Position: <%= player.position %></p>
-    <p>Height: <%= player.height %></p>
-    <p>Weight: <%= player.weight %></p>
-    <p>Number: <%= player.number %></p>
-    <p>Status: <%= player.status %></p>
-    <br>
-    <br>
-    <form action="/users/<%= user._id %>/players/<%= player._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete Player</button>
-    </form>
-    <form action="/users/<%= user._id %>/players/<%= player._id %>/edit" method="GET">
-        <button type="submit">Edit Player</button>
-    </form>
-    <br>
-    <br>
+        <div class="show-body">
+            <div class="show-header">
+                <h1>Welcome to the NBG Player Page</h1>
+            </div>
+            <div class="show-sidebar">
+                <h2>
+                    <%= player.name %>
+                </h2>
+                <h3>Position: <%= player.position %>
+                </h3>
+                <h3>Height: <%= player.height %>
+                </h3>
+                <h3>Weight: <%= player.weight %>
+                </h3>
+                <h3>Number: <%= player.number %>
+                </h3>
+                <h3>Status: <%= player.status %>
+                </h3>
+                <h3>Team: <%= team.name %></h3>
+            </div>
+            <div class="show-actions">
+                <form action="/users/<%= user._id %>/players/<%= player._id %>?_method=DELETE" method="POST">
+                    <button class="button" type="submit">Delete Player</button>
+                </form>
+                <form action="/users/<%= user._id %>/players/<%= player._id %>/edit" method="GET">
+                    <button class="button" type="submit">Edit Player</button>
+                </form>
+            </div>
+        </div>
 </body>
 
 </html>

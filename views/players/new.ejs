@@ -4,54 +4,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Create game</title>
 </head>
 
 <body>
     <%- include('../nav/_nav.ejs') %>
-    <h1>Create a new Player!</h1>
-    <form action="/users/<%= user._id %>/players" method="POST">
-        <div>
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" required>
+        <h1>Create a new Player!</h1>
+        <div class="new">
+        <form action="/users/<%= user._id %>/players" method="POST">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <br>
+            <br>
+            <div>
+                <label for="position">Position:</label>
+                <input type="text" name="position" id="position" required>
+            </div>
+            <br>
+            <br>
+            <div>
+                <label for="number">Number:</label>
+                <input type="number" name="number" id="number" required>
+            </div>
+            <br>
+            <br>
+            <div>
+                <label for="height">Height:</label>
+                <input type="text" name="height" id="height" required>
+            </div>
+            <br>
+            <br>
+            <div>
+                <label for="weight">Weight:</label>
+                <input type="text" name="weight" id="weight" required>
+            </div>
+            <br>
+            <br>
+            <div>
+                <label for="status">Status:</label>
+                <select name="status" id="status">
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+            </div>
+            <br>
+            <br>
+            <div>
+                <label for="team">Team:</label>
+                <select name="team" id="team">
+                    <% teams.forEach((team)=>{ %>
+                    <option value="<%= team._id %>"><%= team.name %></option>
+                   <% }) %>
+                </select>
+            </div>
+            <br>
+            <br>
+            <button class="button" type="submit">Create Player</button>
+        </form>
         </div>
-        <br>
-        <br>
-        <div>
-        <label for="position">Position:</label>
-        <input type="text" name="position" id="position" required>
-        </div>
-        <br>
-        <br>
-        <div>
-        <label for="number">Number:</label>
-        <input type="number" name="number" id="number" required>
-        </div>
-        <br>
-        <br>
-        <div>
-        <label for="height">Height:</label>
-        <input type="text" name="height" id="height" required>
-        </div>
-        <br>
-        <br>
-        <div>
-        <label for="weight">Weight:</label>
-        <input type="text" name="weight" id="weight" required>
-        </div>
-        <br>
-        <br>
-        <div>
-        <label for="status">Status:</label>
-            <select name="status" id="status">
-                <option value="active">Active</option>
-                <option value="inactive">Inactive</option>
-            </select>
-        </div>
-        <br>
-        <br>
-        <button type="submit">Create Player</button>
-    </form>
 </body>
 
 </html>

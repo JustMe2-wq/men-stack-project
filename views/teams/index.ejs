@@ -4,19 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Your Team</title>
 </head>
 
 <body>
     <%- include('../nav/_nav.ejs') %>
-    <h1>Welcome to the NBG Team Page</h1>
-    <a href="/users/<%=user._id%>/teams/new">Add New Team</a>
-    <ul>
-        <% teams.forEach((team) => { %>
-            <li>
-                <a href="/users/<%= user._id %>/teams/<%= team._id %>"><%= team.name %></a>
-            </li>
-        <% }) %>
-    </ul>
-   
+        <div class="team-container">
+            <div class="team-header">
+                <h1>Welcome to the NBG Team Page</h1>
+            </div>
+            <ul>
+                <% teams.forEach((team)=> { %>
+                    <li>
+                        <a class="teams" href="/users/<%= user._id %>/teams/<%= team._id %>">
+                            <%= team.name %>
+                        </a>
+                    </li>
+                    <% }) %>
+            </ul>
+            <a class="add-team" href="/users/<%=user._id%>/teams/new">Add New Team</a>
+        </div>
+
 </html>

@@ -6,10 +6,11 @@ const User = require('../models/users.js');
 router.get('/', async (req, res) => {
     try {
         const currentUser = await User.findById(req.session.user._id)
-        res.render('teams/index.ejs', 
-        {
-            teams: currentUser.teams,
-        });
+        console.log(currentUser.teams)
+        res.render('teams/index.ejs',
+            {
+                teams: currentUser.teams,
+            });
     } catch (error) {
         console.log(error);
         res.render('/')

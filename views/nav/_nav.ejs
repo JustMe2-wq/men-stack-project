@@ -1,10 +1,22 @@
+<link rel="stylesheet" href="/stylesheets/partials.css" />
+
 <nav>
-    <% if(user) { %>
-    <a href="/users/<%= user._id %>/teams">Team Page</a>
-    <a href="/users/<%= user._id %>/players">Player Page</a>
-    <a href="/auth/sign-out">Sign Out</a>
+  <% if(user) { %>
+    <div class="nav">
+      <img class="nav-img" src="/images/cat.png" />
+      <div class="nav-link">
+        <a class="auth" href="/users/<%= user._id %>/teams">Team Page</a>
+        <a class="auth" href="/users/<%= user._id %>/players">Player Page</a>
+        <a class="auth" href="/auth/sign-out">Sign Out</a>
+      </div>
+    </div>
     <% } else { %>
-    <a href="/auth/sign-in">Sign In</a>
-    <a href="/auth/sign-up">Sign Up</a>
-    <% } %>
-  </nav>
+      <div class="nav">
+        <img class="nav-img" src="/images/cat.png" />
+        <div class="nav-link">
+          <a class="signup" href="/auth/sign-up">Sign up</a>
+          <a class="signin" href="/auth/sign-in">Sign in</a>
+        </div>
+      </div>
+      <% } %>
+</nav>

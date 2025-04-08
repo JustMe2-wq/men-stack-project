@@ -4,27 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/show.css" />
+
     <title>Team Page</title>
 </head>
 
 <body>
     <%- include('../nav/_nav.ejs') %>
-    <h1><%= team.name %></h1>
-    <h3>City: <%= team.city %></h3>
-    <h3>Mascot: <%= team.mascot %></h3>
-    <h3>Color: <%= team.color %></h3>
-    <h3>Year Founded: <%= team.yearFounded %></h3>
-    <h3>Status: <%= team.status %></h3>
-    <form action="/users/<%= user._id %>/teams/<%= team._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete Team</button>
-    </form>
-    <form action="/users/<%= user._id %>/teams/<%= team._id %>/edit" method="GET">
-        <button type="submit">Edit Team</button>
-    </form>
-    <h2>Players</h2>
-    <form action="/users/<%= user._id %>/players/new" method="GET">
-        <button type="submit">Add New Player</button>
-    </form>
+        <div class="show-body">
+            <div class="show-header">
+                <h1>Welcome to the NBG Team Page</h1>
+            </div>
+            <div class="show-sidebar">
+                <h2>
+                    <%= team.name %>
+                </h2>
+                <h3>City: <%= team.city %>
+                </h3>
+                <h3>Mascot: <%= team.mascot %>
+                </h3>
+                <h3>Color: <%= team.color %>
+                </h3>
+                <h3>Year Founded: <%= team.yearFounded %>
+                </h3>
+                <h3>Status: <%= team.status %>
+                </h3>
+            </div>
+            <div class="show-actions">
+                <form action="/users/<%= user._id %>/teams/<%= team._id %>?_method=DELETE" method="POST">
+                    <button class="button" type="submit">Delete Team</button>
+                </form>
+                <form action="/users/<%= user._id %>/teams/<%= team._id %>/edit" method="GET">
+                    <button class="button" type="submit">Edit Team</button>
+                </form>
+                <form action="/users/<%= user._id %>/players/new" method="GET">
+                    <button class="button" type="submit">Add New Player</button>
+                </form>
+            </div>
+        </div>
 </body>
 </body>
 

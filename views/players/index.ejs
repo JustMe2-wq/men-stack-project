@@ -4,20 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Player Index</title>
 </head>
 
 <body>
     <%- include('../nav/_nav.ejs') %>
-    <h1>Welcome to the NBG Player Page</h1>
-    <a href="/users/<%=user._id%>/players/new">Add New Player</a>
-    <ul>
-        <% players.forEach((player) => { %>
-            <li>
-                <a href="/users/<%= user._id %>/players/<%= player._id %>"><%= player.name %></a>
-            </li>
-        <% }) %>
-    </ul>
+        <div class="team-container">
+            <div class="team-header">
+                <h1>Welcome to the NBG Player Page</h1>
+            </div>
+            <ul>
+                <% players.forEach((player)=> { %>
+                    <li>
+                        <a href="/users/<%= user._id %>/players/<%= player._id %>">
+                            <%= player.name %>
+                        </a>
+                    </li>
+                    <% }) %>
+            </ul>
+            <a class="add-team" href="/users/<%=user._id%>/players/new">Add New Player</a>
+        </div>
 </body>
 
 </html>

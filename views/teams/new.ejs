@@ -4,56 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Create Team</title>
 </head>
 
 <body>
     <%- include('../nav/_nav.ejs') %>
-    <h1>Create a new Team!</h1>
-    <br>
-    <br>
-    <form action="/users/<%= user._id %>/teams" method="POST">
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" name="name" id="name">
+        <h1>Create a new Team!</h1>
+        <div class="new">
+            <form action="/users/<%= user._id %>/teams" method="POST">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name">
+                </div>
+                <br>
+                <br>
+                <div>
+                    <label for="city">City:</label>
+                    <input type="text" name="city" id="city">
+                </div>
+                <br>
+                <br>
+                <div>
+                    <label for="mascot">Mascot:</label>
+                    <input type="text" name="mascot" id="mascot">
+                </div>
+                <br>
+                <br>
+                <div>
+                    <label for="color">Color:</label>
+                    <input type="text" name="color" id="color">
+                </div>
+                <br>
+                <br>
+                <div>
+                    <label for="yearFounded">Year Founded:</label>
+                    <input type="number" name="yearFounded" id="yearFounded">
+                </div>
+                <br>
+                <br>
+                <div>
+                    <label for="status">Status:</label>
+                    <select name="status" id="status">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+                <br>
+                <br>
+                <button class="button" type="submit">Create Team</button>
+            </form>
         </div>
-        <br>
-        <br>
-        <div>
-            <label for="city">City:</label>
-            <input type="text" name="city" id="city">
-        </div>
-        <br>
-        <br>
-        <div>
-            <label for="mascot">Mascot:</label>
-            <input type="text" name="mascot" id="mascot">
-        </div>
-        <br>
-        <br>
-        <div>
-            <label for="color">Color:</label>
-            <input type="text" name="color" id="color">
-        </div>
-        <br>
-        <br>
-        <div>
-            <label for="yearFounded">Year Founded:</label>
-            <input type="number" name="yearFounded" id="yearFounded">
-        </div>
-        <br>
-        <br>
-        <div>
-            <label for="status">Status:</label>
-            <select name="status" id="status">
-                <option value="active">Active</option>
-                <option value="inactive">Inactive</option>
-            </select>
-        </div>
-        <br>
-        <br>
-        <button type="submit">Create Team</button>
-    </form>
 </body>
 
 </html>

@@ -4,6 +4,7 @@ dotenv.config();
 const mongoose = require('mongoose');
 const app = express();
 const PORT = process.env.PORT || 4000;
+const path = require('path');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
 const session = require('express-session');
@@ -23,6 +24,7 @@ mongoose.connection.on('connected', () => {
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
     secret: process.env.SECRET_NUMBER,
@@ -32,13 +34,13 @@ app.use(session({
 
 app.use(passUserToView);
 
-app.get ('/', (req, res) => {
+app.get('/', (req, res) => {
     if (req.session.user) {
         res.redirect(`/users/${req.session.user._id}/teams`);
     } else if (req.session.user) {
         res.redirect(`/users/${req.session.user._id}/players`);
     } else {
-    res.render('home.ejs');
+        res.render('home.ejs');
     }
 });
 
@@ -54,10 +56,19 @@ app.use(morgan('dev'));
 
 app.use(
     session({
-    secret: process.env.SECRET_NUMBER,
-    resave: false,
-    saveUninitialized: true,
-}));
+        secret: process.env.SECRET_NUMBER,
+        resave: false,
+        saveUninitialized: true,
+    }));
+
+
+app.use(
+    session({
+        secret: process.env.SECRET_NUMBER,
+        resave: false,
+        saveUninitialized: true,
+    })
+);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
