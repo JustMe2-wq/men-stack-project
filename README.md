@@ -6,7 +6,7 @@
 - **Project Planning**: [Trello Board](https://trello.com/b/XzjGHx9m/men-stack-project)
 
 ## Welcome to the NBG League!
-The NBG League app allows users to create their own leagues with teams and players, while keeping track of those teams. Users can log in with different accounts to manage various sports teams or any other type of league they choose.
+The goal for the NBG League is for the user to be able to create his or her own league with teams and players while being able to keep track of those teams. The user can also use different log in to for different sport teams or whatever the user so choses.</h3>
 
 ## Technologies Used
 - **Backend**: Node.js, Express, MongoDB, Mongoose
@@ -14,6 +14,6 @@ The NBG League app allows users to create their own leagues with teams and playe
 - **Utilities**: bcrypt, dotenv, express-session, method-override, morgan
 
 ## Next Steps
-1. **Styling**: Add functionality to display players on the correct team page.
-2. **Styling**: Enable users to upload photos for the teams they create.
-3. **Bug Fixes**: Resolve issues with editing players or teams to prevent duplicate entries.
+1. **Styling**: Creating a spot in the code to have players on a the correct team page.
+2. **Styling**: Creating options for the user to add photos to the teams created.
+3. **Bug Fixes**: Fix issue with editing player or team instead of doubling entry.
