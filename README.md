@@ -1,5 +1,5 @@
 # NBG League App
-![NBG Logo](/public/images/cat.png)
+![NBG Logo](/C:\Users\GoyLe\OneDrive\Pictures\CameraRoll1/cat)
 
 ## Links
 - **GitHub Repository**: [men-stack-project](https://github.com/JustMe2-wq/men-stack-project.git)
