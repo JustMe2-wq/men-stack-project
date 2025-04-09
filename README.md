@@ -1,5 +1,5 @@
 # NBG League App
-![NBG Logo](https://www.github.com</public/images/cat.png>)
+![NBG Logo](https://www.github.com/public/images/cat.png)
 
 ## Links
 - **GitHub Repository**: [men-stack-project](https://github.com/JustMe2-wq/men-stack-project.git)
