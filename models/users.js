@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const teamSchema = new mongoose.Schema({
-    
+
     name: String,
 
     city: String,
@@ -35,8 +35,8 @@ const playerSchema = new mongoose.Schema({
         enum: ['active', 'inactive'],
         required: true,
     },
-    
-    team: {type: mongoose.Schema.Types.ObjectId, ref: "Team"}
+
+    team: { type: mongoose.Schema.Types.ObjectId, ref: "Team" }
 })
 
 const userSchema = new mongoose.Schema({

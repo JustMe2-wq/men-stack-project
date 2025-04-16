@@ -40,7 +40,7 @@ router.post('/', async (req, res) => {
 
 router.get('/:playerId', async (req, res) => {
     try {
-        const currentUser = await User.findById(req.session.user._id).populate("teams").setOptions({strictPopulate: false})
+        const currentUser = await User.findById(req.session.user._id).populate("teams").setOptions({ strictPopulate: false })
         const player = currentUser.players.id(req.params.playerId)
         const team = currentUser.teams.find(team => team._id.toString() === player.team.toString())
         console.log(player.team)
@@ -68,10 +68,10 @@ router.delete('/:playerId', async (req, res) => {
 
 router.get('/:playerId/edit', async (req, res) => {
     try {
-        const currentUser = await User.findById(req.session.user._id).populate("teams").setOptions({strictPopulate: false})
+        const currentUser = await User.findById(req.session.user._id).populate("teams").setOptions({ strictPopulate: false })
         const player = currentUser.players.id(req.params.playerId);
         const team = currentUser.teams.find(team => team._id.toString() === player.team.toString())
-        console.log(player.team,"this is the players team")
+        console.log(player.team, "this is the players team")
         await currentUser.save()
         res.render('players/edit.ejs', {
             player: player,
